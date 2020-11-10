@@ -35,7 +35,7 @@ if (fifa14[0]['Home Team Goals'] > fifa14[0]['Away Team Goals']) {
 } else {
     winner14.push(fifa14[0]['Away Team Name'])
 }
-console.log(winner14);
+//console.log(winner14);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
@@ -44,14 +44,19 @@ function getFinals(data) {
    /* code here */
    return fifaData.filter(game => game.Stage ==="Final");
 }
-
+console.log(getFinals(fifaData));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
-function getYears(/* code here */) {
+function getYears(data,getFinals) {
     /* code here */
+    const finalGames = getFinals(data);
+    const years =[];
+    finalGames.forEach(game => years.push(game.Year));
+    return years;
+
 }
 
 
