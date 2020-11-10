@@ -5,22 +5,44 @@ import { fifaData } from './fifa.js';
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Investigate the data above. Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
 
+// const fifa14 = fifaData.filter(function(game) {
+//     return game.Year===2014 && game.Stage ==="Final";
+// });
+
+const fifa14 = fifaData.filter(game => game.Year===2014 && game.Stage ==="Final");
+
+console.log(fifa14);
+
 //(a) Home Team name for 2014 world cup final
+
+console.log(fifa14[0]['Home Team Name']);
 
 //(b) Away Team name for 2014 world cup final
 
+console.log(fifa14[0]['Away Team Name']);
+
 //(c) Home Team goals for 2014 world cup final
+console.log(fifa14[0]['Home Team Goals']);
 
 //(d) Away Team goals for 2014 world cup final
-
+console.log(fifa14[0]['Away Team Goals']);
 //(e) Winner of 2014 world cup final */
+const winner14 = [];
 
+
+if (fifa14[0]['Home Team Goals'] > fifa14[0]['Away Team Goals']) {
+    winner14.push(fifa14[0]['Home Team Name']);
+} else {
+    winner14.push(fifa14[0]['Away Team Name'])
+}
+console.log(winner14);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
+function getFinals(data) {
    /* code here */
+   return fifaData.filter(game => game.Stage ==="Final");
 }
 
 
